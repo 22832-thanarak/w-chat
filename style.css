@@ -1,0 +1,508 @@
+/* =========================================
+   1. CORE & ANIMATED BACKGROUND
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  /* Animated Gradient Background */
+  background: linear-gradient(-45deg, #e3f2fd, #ffffff, #90caf9, #e3f2fd);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: #1c2a38;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-padding {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0D47A1;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #1976D2;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* =========================================
+   2. NAVIGATION BAR (Glassmorphism & Sticky)
+   ========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0D47A1;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #424242;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #FFFFFF;
+  background-color: #1976D2;
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero-section {
+  padding: 80px 0;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #E3F2FD;
+  color: #1976D2;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: #0D47A1;
+}
+
+.highlight {
+  color: #1976D2;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #1976D2;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #0D47A1;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #1976D2;
+  border: 2px solid #1976D2;
+}
+
+.btn-secondary:hover {
+  background-color: #E3F2FD;
+  transform: translateY(-2px);
+}
+
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-bg-circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, #42A5F5, #90CAF9);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(20px);
+  opacity: 0.6;
+}
+
+.profile-img {
+  position: relative;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   4. STATS SECTION
+   ========================================= */
+.stats-section {
+  padding: 20px 0 60px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.stat-card h3 {
+  color: #1976D2;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0D47A1;
+}
+
+/* =========================================
+   5. PROFILE PAGE
+   ========================================= */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.profile-card-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  color: #0D47A1;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #E3F2FD;
+  padding-bottom: 8px;
+}
+
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* =========================================
+   6. EDUCATION PAGE & TIMELINE
+   ========================================= */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  padding-left: 30px;
+  border-left: 3px solid #90CAF9;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -38px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background-color: #90CAF9;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+.timeline-dot.active-dot {
+  background-color: #1976D2;
+  width: 18px;
+  height: 18px;
+  left: -40px;
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.active-card {
+  border-left: 4px solid #1976D2;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: #1976D2;
+  font-weight: 700;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.styled-table th, .styled-table td {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+.styled-table thead tr {
+  background-color: #1976D2;
+  color: #FFFFFF;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #E3F2FD;
+}
+
+/* =========================================
+   7. HOBBY PAGE
+   ========================================= */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.hobby-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(25, 118, 210, 0.15);
+}
+
+.hobby-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hobby-card h3 {
+  color: #0D47A1;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   8. CONTACT PAGE
+   ========================================= */
+.contact-cta {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-cta h3 {
+  font-size: 1.5rem;
+  color: #0D47A1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+.footer {
+  background-color: #0D47A1;
+  color: #FFFFFF;
+  padding: 40px 0 20px;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #90CAF9;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  font-size: 0.85rem;
+  color: #90CAF9;
+}
+
+/* =========================================
+   10. RESPONSIVE DESIGN (Media Queries)
+   ========================================= */
+@media (max-width: 768px) {
+  .hero-container,
+  .profile-layout,
+  .stats-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
